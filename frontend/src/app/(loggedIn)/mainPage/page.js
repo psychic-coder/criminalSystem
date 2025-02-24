@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black py-10 flex justify-center items-center">
+    <div className="min-h-screen bg-black py-10 flex justify-center items-center ">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg  shadow-xl shadow-blue-700">
         <h1 className="text-2xl font-bold mb-6 text-center">Criminal Details Lookup</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
