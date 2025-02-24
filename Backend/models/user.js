@@ -1,5 +1,5 @@
 import mongoose, { Schema, model } from "mongoose";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 const schema = new Schema({
   name: {
@@ -18,8 +18,7 @@ const schema = new Schema({
   },
   password: {
     type: String,
-    required: [true, "Please enter password"],
-    select: false,
+    required: [true, "Please enter password"]
   },
   createdAt: {
     type: Date,
@@ -30,7 +29,7 @@ const schema = new Schema({
 
 schema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  this.password = await bcrypt.hash(this.password, 10);
+  this.password = await bcryptjs.hashSync(this.password, 10);
   next();
 });
 

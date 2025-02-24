@@ -10,6 +10,7 @@ const cookieOptions={
 };
 
 const sendToken = (res, user, code, message) => {
+   
     const token = jwt.sign(
       {
         _id: user._id,

@@ -18,10 +18,10 @@ export default function LoginPage() {
   const onLogin = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("https:localhost:4000/api/user/login", user);
+      const res = await axios.post("http://localhost:4000/api/user/login", user);
       console.log("Login is successful", res.data);
       toast.success("Login is successful");
-      router.push("/profile");
+      router.push("/mainPage");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
     } finally {
