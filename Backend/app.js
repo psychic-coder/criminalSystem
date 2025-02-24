@@ -6,6 +6,7 @@ import {errorMiddleware} from "./middlewares/error.js"
 import morgan from "morgan"
 import dotenv from "dotenv"
 import { connectDB } from "./lib/db.js"
+import userRouter from "./routes/user.routes.js"
   
   dotenv.config({path: './.env',});
   
@@ -40,13 +41,7 @@ app.use(morgan('dev'))
   
   // your routes here
   
-    
-  app.get("*", (req, res) => {
-    res.status(404).json({
-      success: false,
-      message: "Page not found",
-    });
-  });
+ app.use("/api/user",userRouter);
   
   app.use(errorMiddleware);
     

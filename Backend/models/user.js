@@ -1,7 +1,5 @@
-
-import mongoose,{Schema,model} from "mongoose";
-import bcrypt from "bcrypt"
-
+import mongoose, { Schema, model } from "mongoose";
+import bcrypt from "bcrypt";
 
 const schema = new Schema({
   name: {
@@ -30,10 +28,10 @@ const schema = new Schema({
 });
 
 
-schema.pre("save",async function(next){
-  if(!this.isModified("password")) return next();
-this.password=await bcrypt.hash(this.password,10);
-})
-
+schema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
 
 export const User = model("User", schema);
