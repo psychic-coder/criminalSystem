@@ -18,7 +18,7 @@ const sendToken = (res, user, code, message) => {
       process.env.JWT_SECRET
     );
   
-    console.log(token);
+   
     return res.status(code).cookie("access_token", token, cookieOptions).json({
       success: true,
       user,

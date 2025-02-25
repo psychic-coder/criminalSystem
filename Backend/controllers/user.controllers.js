@@ -5,10 +5,10 @@ import { cookieOptions, sendToken } from "../utils/features.js";
 import { User } from "../models/user.js";
 
 export const newUser = TryCatch(async (req, res, next) => {
-  console.log(req.body);
+  
   const { name, email, username, password } = req.body;
 
-  const hashPassword = bcryptjs.hashSync(password, 10);
+  // const hashPassword = bcryptjs.hashSync(password, 10);
   const user = await User.create({
     name,
     email,

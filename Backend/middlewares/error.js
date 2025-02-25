@@ -5,7 +5,6 @@ export const errorMiddleware = (
   err,
   req,
   res,
-  // eslint-disable-next-line no-unused-vars
   next
 )=> {
   
